@@ -6,6 +6,15 @@
     "plugin:react/recommended",
     "plugin:tailwindcss/recommended"
   ],
+  "ignorePatterns": [
+    "node_modules/",
+    "**/node_modules/",
+    " /**/node_modules/*",
+    "dist/",
+    "build/",
+    "src/components/ui/",
+    "src/components/lib/"
+  ],
   "rules": {
     "indent": [
       "error",
