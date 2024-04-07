@@ -55,10 +55,10 @@ export default function FormacaoAcademica() {
           Inserir sua formação acadêmica, colocando os cursos mais importantes para a vaga primeiro e sempre do mais recente para o mais antigo.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4">
         { formacoes.map((formacao, index) => <FormacaoItem key={index} deleteFormacao={deleteFormacao} formacao={formacao} index={index} /> )}
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex gap-3">
         <Button className="mt-3" type="button" onClick={addFormacao}>
           + Adicionar outro curso
         </Button>
