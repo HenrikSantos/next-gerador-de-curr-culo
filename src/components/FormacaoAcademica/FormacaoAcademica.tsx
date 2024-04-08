@@ -25,6 +25,7 @@ export default function FormacaoAcademica() {
   }, [FormacaoAcademica]);
 
   const submit = (values: IFormacaoAcademica[]) => {
+    console.log(values);
     setFormacaoAcademica(values);
   };
 
@@ -45,6 +46,12 @@ export default function FormacaoAcademica() {
     setFormacoes(newFormacoes);
   };
 
+  const updateFormacao = (index: number, newFormacao: IFormacaoAcademica) => {
+    const newFormacoes = [...formacoes];
+    newFormacoes[index] = newFormacao;
+    setFormacoes(newFormacoes);
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -56,7 +63,7 @@ export default function FormacaoAcademica() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        { formacoes.map((formacao, index) => <FormacaoItem key={index} deleteFormacao={deleteFormacao} formacao={formacao} index={index} /> )}
+        { formacoes.map((formacao, index) => <FormacaoItem key={index} updateFormacao={updateFormacao} deleteFormacao={deleteFormacao} formacao={formacao} index={index} /> )}
       </CardContent>
       <CardFooter className="flex gap-3">
         <Button className="mt-3" type="button" onClick={addFormacao}>

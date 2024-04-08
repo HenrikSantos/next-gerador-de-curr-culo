@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IFormacaoAcademica } from "../FormacaoAcademica/IFormacaoAcademica";
 import {
   Form,
@@ -19,7 +19,9 @@ interface IFormacaoItem {
   formacao: IFormacaoAcademica, 
   index: number, 
   // eslint-disable-next-line no-unused-vars
-  deleteFormacao: (index: number) => void
+  deleteFormacao: (index: number) => void,
+  // eslint-disable-next-line no-unused-vars
+  updateFormacao: (index: number, newFormacao: IFormacaoAcademica) => void
 }
 
 const formSchema = z.object({
@@ -28,11 +30,27 @@ const formSchema = z.object({
   AnoDeConclusao: z.string(),
 });
 
-export default function FormacaoItem({ formacao, index, deleteFormacao }: IFormacaoItem) {
+export default function FormacaoItem({ formacao, index, deleteFormacao, updateFormacao }: IFormacaoItem) {
   const form = useForm<IFormacaoAcademica>({
     resolver: zodResolver(formSchema),
-    defaultValues: formacao,
+    defaultValues: {
+      Curso: formacao.Curso || "",
+      Instituicao: formacao.Instituicao || "",
+      AnoDeConclusao: formacao.AnoDeConclusao || "",
+    },
   });
+
+  useEffect(() => {
+    const subscription = form.watch((values) => {
+      updateFormacao(index, {
+        Curso: values.Curso || "",
+        Instituicao: values.Instituicao || "",
+        AnoDeConclusao: values.AnoDeConclusao || "",
+      });
+    });
+
+    return () => subscription.unsubscribe();
+  }, [form.watch, form, index, updateFormacao]);
 
   return (
     <Form {...form} key={index}>
@@ -79,7 +97,7 @@ export default function FormacaoItem({ formacao, index, deleteFormacao }: IForma
           }
         />
         <Button className="text-red-600" type="button" onClick={() => deleteFormacao(index)}>
-                Deletar
+          Deletar
         </Button>
       </form>
     </Form>

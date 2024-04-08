@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { IDadosPessoais } from "@/components/DadosPessoais/IDadosPessoais";
+import { IExperiencia } from "@/components/Experiencia/IExperiencia";
 import { IFormacaoAcademica } from "@/components/FormacaoAcademica/IFormacaoAcademica";
 import { create } from "zustand";
 
@@ -8,6 +9,8 @@ type Store = {
   setDadosPessoais: (_DadosPessoais: IDadosPessoais) => void,
   FormacaoAcademica: IFormacaoAcademica[],
   setFormacaoAcademica: (_FormacaoAcademica: IFormacaoAcademica[]) => void
+  Experiencia: IExperiencia[],
+  setExperiencia: (_Experiencia: IExperiencia[]) => void
 }
 
 const store = create<Store>()((set) => ({
@@ -36,6 +39,23 @@ const store = create<Store>()((set) => ({
     },
   ],
   setFormacaoAcademica: (_FormacaoAcademica) => set(() => ({ FormacaoAcademica: _FormacaoAcademica })),
+  Experiencia: [
+    {
+      Empresa: "Americanas S.A",
+      Inicio: "2021",
+      Fim: "2022",
+      Cargo: "Vendedor interno",
+      Descricao: "Responsável por prestar um atendimento ao público, também auxiliei na organização da loja, no controle de entrada e saída de mercadorias e no fechamento de caixa."
+    },
+    {
+      Empresa: "Litoral MED",
+      Inicio: "2020",
+      Fim: "2020",
+      Cargo: "Assistente administrativo",
+      Descricao: "Responsável pelo atendimento telefônico e presencial e pela organização dos arquivos da empresa. Também me encarreguei de enviar e receber documentos por e-mail e criar planilhas no Excel."
+    }
+  ],
+  setExperiencia: (_Experiencia) => set(() => ({ Experiencia: _Experiencia })),
 }));
 
 export default store;

@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DadosPessoais from "@/components/DadosPessoais/DadosPessoais";
 import CurriculumRender from "@/components/CurriculumRender/CurriculumRender";
 import FormacaoAcademica from "@/components/FormacaoAcademica/FormacaoAcademica";
+import Experiencia from "@/components/Experiencia/Experiencia";
 
 export default function Home() {
   return (
@@ -16,8 +17,8 @@ export default function Home() {
         </TabsList>
         <TabsContent value="DadosPessoais"><DadosPessoais /></TabsContent>
         <TabsContent value="FormacaoAcademica"><FormacaoAcademica /></TabsContent>
-        {/* <TabsContent value="DadosPessoais"><DadosPessoais /></TabsContent>
-      <TabsContent value="DadosPessoais"><DadosPessoais /></TabsContent> */}
+        <TabsContent value="Experiencia"><Experiencia /></TabsContent>
+        {/* <TabsContent value="DadosPessoais"><DadosPessoais /></TabsContent> */}
       </Tabs>
       <CurriculumRender />
     </main>
