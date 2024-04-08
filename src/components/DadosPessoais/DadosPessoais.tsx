@@ -26,6 +26,7 @@ import { useForm } from "react-hook-form";
 import { useStore } from "zustand";
 import store from "@/context/store";
 import { IDadosPessoais } from "./IDadosPessoais";
+import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   NomeCompleto: z.string().min(5, { message: "O nome deve ter ao menos 5 caracteres." }).max(100),
@@ -35,7 +36,8 @@ const formSchema = z.object({
   Idade: z.string().optional(),
   TelefoneResidencial: z.string().optional(),
   Celular: z.string().optional(),
-  Endereco: z.string().optional()
+  Endereco: z.string().optional(),
+  Sobre: z.string().min(20, { message: "É nessário dizer algo sobre você." })
 });
 
 export default function DadosPessoais() { 
@@ -51,7 +53,8 @@ export default function DadosPessoais() {
       TelefoneResidencial: "",
       Celular: "",
       Endereco: "",
-      Subtitulo: ""
+      Subtitulo: "",
+      Sobre: ""
     },
   });
 
@@ -79,7 +82,7 @@ export default function DadosPessoais() {
                 <FormItem>
                   <FormLabel>Nome Completo <span className="text-red-800">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Felipe Santos" />
+                    <Input {...field} placeholder="Henrik Ruan Santos de Soza" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -106,6 +109,23 @@ export default function DadosPessoais() {
                   <FormLabel>Email <span className="text-red-800">*</span></FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="seu@email.com"/>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              }
+            />
+
+            <FormField
+              control={form.control}
+              name="Sobre"
+              render={({ field }) => 
+                <FormItem>
+                  <FormLabel>Sobre <span className="text-red-800">*</span></FormLabel>
+                  <FormControl>
+                    <Textarea {...field} placeholder="Sou desenvolvedor WEB Full Stack,
+                      atualmente aluno em Análise e Desenvolvimento de Sistemas na
+                      Fatec Taubaté, já atuei como... meus passatempos são...
+                      estou em busca do meu primeiro emprego como desenvolvedor." />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

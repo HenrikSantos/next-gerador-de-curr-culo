@@ -62,7 +62,7 @@ export default function FormacaoAcademica() {
         <Button className="mt-3" type="button" onClick={addFormacao}>
           + Adicionar outro curso
         </Button>
-        <Button className="mt-3" type="button" onClick={() => submit}>Salvar</Button>
+        <Button className="mt-3" type="button" onClick={() => submit(formacoes)}>Salvar</Button>
       </CardFooter>
     </Card>
   );

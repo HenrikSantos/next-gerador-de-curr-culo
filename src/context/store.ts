@@ -19,7 +19,8 @@ const store = create<Store>()((set) => ({
     Idade: "22",
     TelefoneResidencial: "(55) 9999-9999",
     Celular: "(12) 99999-9999",
-    Endereco: "Projetada 13"
+    Endereco: "Projetada 13",
+    Sobre: "Sou desenvolvedor WEB Full Stack, atualmente aluno em Análise e Desenvolvimento de Sistemas na Fatec Taubaté, já atuei como auxiliar administrativo e vendedor interno, meus passatempos são programar, jogar e ler mangás, estou em busca do meu primeiro emprego como desenvolvedor."
   },
   setDadosPessoais: (_DadosPessoais) => set(() => ({ DadosPessoais: _DadosPessoais })),
   FormacaoAcademica: [

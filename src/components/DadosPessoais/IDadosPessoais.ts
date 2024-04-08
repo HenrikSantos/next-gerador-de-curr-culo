@@ -6,5 +6,6 @@ export interface IDadosPessoais {
   Idade?: string,
   TelefoneResidencial?: string,
   Celular?: string,
-  Endereco?: string
+  Endereco?: string,
+  Sobre: string
 }

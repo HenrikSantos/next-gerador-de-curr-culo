@@ -30,16 +30,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     fontFamily: "Lato"
   },
-  FirstSection: {
+  PersonalData: {
     padding: 10,
-    flexGrow: 1,
-    borderBottom: "1 solid #CCCCCC",
   },
   header: {
     fontSize: 18,
     fontWeight: "extrabold",
   },
-  subtitle: {
+  subtitleName: {
     fontSize: 15,
     fontFamily: "Lato Italic",
     fontWeight: "light",
@@ -47,30 +45,59 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
-    marginBottom: 5,
   },
   PDFViewer: {
     width : "80%",
     height: "90vh"
+  },
+  subtitle: {
+    fontSize: 15,
+    fontWeight: "light",
+    marginBottom: 10
+  },
+  AcademicFormation: {
+    padding: 10,
+  },
+  sobre: {
+    paddingHorizontal: 20
   }
 });
 
 export default function CurriculumRender() {
-  const { DadosPessoais } = useStore(store);
+  const { DadosPessoais, FormacaoAcademica } = useStore(store);
 
   return (
     <PDFViewer style={styles.PDFViewer}>
       <Document>
         <Page size="A4" style={styles.page}>
-          <View style={styles.FirstSection}>
-            <Text style={styles.header}>{DadosPessoais.NomeCompleto}</Text>
-            {DadosPessoais.Subtitulo && <Text style={styles.subtitle}>{DadosPessoais.Subtitulo}</Text>}
-            <Text style={styles.text}>{DadosPessoais.Email}</Text>
-            {DadosPessoais.Idade && <Text style={styles.text}>Idade: {DadosPessoais.Idade}</Text>}
-            {DadosPessoais.Nacionalidade && <Text style={styles.text}>Nacionalidade: {DadosPessoais.Nacionalidade}</Text>}
-            {DadosPessoais.TelefoneResidencial && <Text style={styles.text}>Telefone Residencial: {DadosPessoais.TelefoneResidencial}</Text>}
-            {DadosPessoais.Celular && <Text style={styles.text}>Celular: {DadosPessoais.Celular}</Text>}
-            {DadosPessoais.Endereco && <Text style={styles.text}>Endereço: {DadosPessoais.Endereco}</Text>}
+          <View>
+            <View style={styles.PersonalData}>
+              <Text style={styles.header}>{DadosPessoais.NomeCompleto}</Text>
+              {DadosPessoais.Subtitulo && <Text style={styles.subtitleName}>{DadosPessoais.Subtitulo}</Text>}
+              <Text style={styles.text}>{DadosPessoais.Email}</Text>
+              {DadosPessoais.Idade && <Text style={styles.text}>Idade: {DadosPessoais.Idade}</Text>}
+              {DadosPessoais.Nacionalidade && <Text style={styles.text}>Nacionalidade: {DadosPessoais.Nacionalidade}</Text>}
+              {DadosPessoais.TelefoneResidencial && <Text style={styles.text}>Telefone Residencial: {DadosPessoais.TelefoneResidencial}</Text>}
+              {DadosPessoais.Celular && <Text style={styles.text}>Celular: {DadosPessoais.Celular}</Text>}
+              {DadosPessoais.Endereco && <Text style={styles.text}>Endereço: {DadosPessoais.Endereco}</Text>}
+              
+              <Text style={{ ...styles.text, marginTop: 10 }}>Sobre: </Text>
+              <Text style={{ ...styles.sobre, ...styles.text }}>{DadosPessoais.Sobre}</Text>
+            </View>
+            {FormacaoAcademica.length > 0 && 
+              <View style={styles.AcademicFormation}>
+                <Text style={styles.subtitle}>Formação Acadêmica: </Text>
+                {FormacaoAcademica.map((formacao, index) => 
+                  <View key={index} style={{ marginVertical: 5, padding: 5 }}>
+                    <Text style={styles.text}>{formacao.Curso}</Text>
+                    <View style={{ display: "flex", gap: 3, flexDirection: "row" }}>
+                      <Text style={styles.text}>{formacao.Instituicao} -</Text>
+                      <Text style={styles.text}>{formacao.AnoDeConclusao}</Text>
+                    </View>
+                  </View>
+                )}
+              </View>
+            }
           </View>
         </Page>
       </Document>
