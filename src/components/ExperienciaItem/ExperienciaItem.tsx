@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IExperiencia } from "../Experiencia/IExperiencia";
 
 import {
@@ -15,12 +15,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "../ui/textarea";
 
 interface IExperienciaItem {
   experiencia: IExperiencia, 
   index: number, 
   // eslint-disable-next-line no-unused-vars
   deleteExperiencia: (index: number) => void
+  // eslint-disable-next-line no-unused-vars
+  updateExperiencia: (index: number, newExperiencia: IExperiencia) => void
 }
 
 const formSchema = z.object({
@@ -31,11 +34,25 @@ const formSchema = z.object({
   Descricao: z.string()
 });
 
-export default function ExperienciaItem({ experiencia, index, deleteExperiencia }: IExperienciaItem) {
+export default function ExperienciaItem({ experiencia, index, deleteExperiencia, updateExperiencia }: IExperienciaItem) {
   const form = useForm<IExperiencia>({
     resolver: zodResolver(formSchema),
     defaultValues: experiencia,
   });
+
+  useEffect(() => {
+    const subscription = form.watch((values) => {
+      updateExperiencia(index, {
+        Empresa: values.Cargo || "",
+        Inicio: values.Cargo || "",
+        Fim: values.Cargo || "",
+        Cargo: values.Cargo || "",
+        Descricao: values.Cargo || "",
+      });
+    });
+
+    return () => subscription.unsubscribe();
+  }, [form.watch, form, index, updateExperiencia]);
 
   return (
     <Form {...form} key={index}>
@@ -48,7 +65,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia 
             <FormItem>
               <FormLabel>Empresa</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="Tabajara Comunicações, sei lá :)"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -62,7 +79,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia 
             <FormItem>
               <FormLabel>Início</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="1999"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -76,7 +93,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia 
             <FormItem>
               <FormLabel>Fim</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="2002"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -102,9 +119,9 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia 
           name="Descricao"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Descrição</FormLabel>
+              <FormLabel>Descrição <span className="text-red-800">*</span></FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Textarea {...field} placeholder="Responsável por..." />
               </FormControl>
               <FormMessage />
             </FormItem>

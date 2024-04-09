@@ -40,6 +40,12 @@ export default function Experiencia() {
     setExperienciasPage(newExperiencias);
   };
 
+  const updateExperiencia = (index: number, newExperiencia: IExperiencia) => {
+    const newExperiencias = [...experienciasPage];
+    newExperiencias[index] = newExperiencia;
+    setExperienciasPage(newExperiencias);
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -51,7 +57,7 @@ export default function Experiencia() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        { experienciasPage.map((experiencia, index) => <ExperienciaItem key={index} deleteExperiencia={deleteExperiencia} experiencia={experiencia} index={index} /> )}
+        { experienciasPage.map((experiencia, index) => <ExperienciaItem key={index} updateExperiencia={updateExperiencia} deleteExperiencia={deleteExperiencia} experiencia={experiencia} index={index} /> )}
       </CardContent>
       <CardFooter className="flex gap-3">
         <Button className="mt-3" type="button" onClick={addExperiencia}>
