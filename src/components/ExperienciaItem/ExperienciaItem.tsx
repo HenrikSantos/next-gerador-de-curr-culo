@@ -43,11 +43,11 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
   useEffect(() => {
     const subscription = form.watch((values) => {
       updateExperiencia(index, {
-        Empresa: values.Cargo || "",
-        Inicio: values.Cargo || "",
-        Fim: values.Cargo || "",
+        Empresa: values.Empresa || "",
+        Inicio: values.Inicio || "",
+        Fim: values.Fim || "",
         Cargo: values.Cargo || "",
-        Descricao: values.Cargo || "",
+        Descricao: values.Descricao || "",
       });
     });
 

@@ -60,11 +60,14 @@ const styles = StyleSheet.create({
   },
   sobre: {
     paddingHorizontal: 20
+  },
+  Experience: {
+    padding: 10,
   }
 });
 
 export default function CurriculumRender() {
-  const { DadosPessoais, FormacaoAcademica } = useStore(store);
+  const { DadosPessoais, FormacaoAcademica, Experiencia } = useStore(store);
 
   return (
     <PDFViewer style={styles.PDFViewer}>
@@ -94,6 +97,22 @@ export default function CurriculumRender() {
                       <Text style={styles.text}>{formacao.Instituicao} -</Text>
                       <Text style={styles.text}>{formacao.AnoDeConclusao}</Text>
                     </View>
+                  </View>
+                )}
+              </View>
+            }
+            {Experiencia.length > 0 && 
+              <View style={styles.Experience}>
+                <Text style={styles.subtitle}>Experiencia: </Text>
+                {Experiencia.map((experiencia, index) => 
+                  <View key={index} style={{ marginVertical: 5, padding: 5 }}>
+                    <View style={{ display: "flex", gap: 3, flexDirection: "row" }}>
+                      <Text style={styles.text}>{experiencia.Cargo}</Text>
+                      <Text style={styles.text}>{experiencia.Inicio} -</Text>
+                      <Text style={styles.text}>{experiencia.Fim}</Text>
+                    </View>
+                    <Text style={{ ...styles.text, fontFamily: "Lato Italic" }}>{experiencia.Empresa}</Text>
+                    <Text style={styles.text}>{experiencia.Descricao}</Text>
                   </View>
                 )}
               </View>
