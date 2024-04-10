@@ -5,5 +5,5 @@ import OutrasInformacoes from "./OutrasInformacoes";
 test("checks if the div with text OutrasInformacoes is present", () => {
   const { getByText } = render(<OutrasInformacoes />);
   const divElement = getByText(/OutrasInformacoes/i);
-  expect(divElement).toBeInTheDocument();
+  expect(divElement).toBeDefined();
 });

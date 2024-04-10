@@ -5,5 +5,5 @@ import FormacaoAcademica from "./FormacaoAcademica";
 test("checks if the div with text FormacaoAcademica is present", () => {
   const { getByText } = render(<FormacaoAcademica />);
   const divElement = getByText(/FormacaoAcademica/i);
-  expect(divElement).toBeInTheDocument();
+  expect(divElement).toBeDefined();
 });
