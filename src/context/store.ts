@@ -2,6 +2,7 @@
 import { IDadosPessoais } from "@/components/DadosPessoais/IDadosPessoais";
 import { IExperiencia } from "@/components/Experiencia/IExperiencia";
 import { IFormacaoAcademica } from "@/components/FormacaoAcademica/IFormacaoAcademica";
+import { IOutrasInformacoes } from "@/components/OutrasInformacoes/IOutrasInformacoes";
 import { create } from "zustand";
 
 type Store = {
@@ -11,6 +12,8 @@ type Store = {
   setFormacaoAcademica: (_FormacaoAcademica: IFormacaoAcademica[]) => void
   Experiencia: IExperiencia[],
   setExperiencia: (_Experiencia: IExperiencia[]) => void
+  OutrasInformacoes: IOutrasInformacoes,
+  setOutrasInformacoes: (_OutrasInformacoes: IOutrasInformacoes) => void
 }
 
 const store = create<Store>()((set) => ({
@@ -56,6 +59,8 @@ const store = create<Store>()((set) => ({
     }
   ],
   setExperiencia: (_Experiencia) => set(() => ({ Experiencia: _Experiencia })),
+  OutrasInformacoes: { OutrasInformacoes: "Meus principais hobbies são: programação, hacking, arte 2D/3D, jogos, criptografia e tecnologia, e Minha principal característica é ser resiliente!" },
+  setOutrasInformacoes: (_OutrasInformacoes) => set(() => ({ OutrasInformacoes: _OutrasInformacoes })),
 }));
 
 export default store;

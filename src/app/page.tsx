@@ -4,6 +4,7 @@ import DadosPessoais from "@/components/DadosPessoais/DadosPessoais";
 import CurriculumRender from "@/components/CurriculumRender/CurriculumRender";
 import FormacaoAcademica from "@/components/FormacaoAcademica/FormacaoAcademica";
 import Experiencia from "@/components/Experiencia/Experiencia";
+import OutrasInformacoes from "@/components/OutrasInformacoes/OutrasInformacoes";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <TabsContent value="DadosPessoais"><DadosPessoais /></TabsContent>
         <TabsContent value="FormacaoAcademica"><FormacaoAcademica /></TabsContent>
         <TabsContent value="Experiencia"><Experiencia /></TabsContent>
-        {/* <TabsContent value="DadosPessoais"><DadosPessoais /></TabsContent> */}
+        <TabsContent value="InformacoesAdicionais"><OutrasInformacoes /></TabsContent>
       </Tabs>
       <CurriculumRender />
     </main>

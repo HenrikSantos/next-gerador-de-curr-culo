@@ -63,11 +63,14 @@ const styles = StyleSheet.create({
   },
   Experience: {
     padding: 10,
+  },
+  OtherInformation: {
+    padding: 10,
   }
 });
 
 export default function CurriculumRender() {
-  const { DadosPessoais, FormacaoAcademica, Experiencia } = useStore(store);
+  const { DadosPessoais, FormacaoAcademica, Experiencia, OutrasInformacoes } = useStore(store);
 
   return (
     <PDFViewer style={styles.PDFViewer}>
@@ -91,7 +94,7 @@ export default function CurriculumRender() {
               <View style={styles.AcademicFormation}>
                 <Text style={styles.subtitle}>Formação Acadêmica: </Text>
                 {FormacaoAcademica.map((formacao, index) => 
-                  <View key={index} style={{ marginVertical: 5, padding: 5 }}>
+                  <View key={index} style={{ padding: 5 }}>
                     <Text style={styles.text}>{formacao.Curso}</Text>
                     <View style={{ display: "flex", gap: 3, flexDirection: "row" }}>
                       <Text style={styles.text}>{formacao.Instituicao} -</Text>
@@ -105,7 +108,7 @@ export default function CurriculumRender() {
               <View style={styles.Experience}>
                 <Text style={styles.subtitle}>Experiencia: </Text>
                 {Experiencia.map((experiencia, index) => 
-                  <View key={index} style={{ marginVertical: 5, padding: 5 }}>
+                  <View key={index} style={{ padding: 5 }}>
                     <View style={{ display: "flex", gap: 3, flexDirection: "row" }}>
                       <Text style={styles.text}>{experiencia.Cargo}</Text>
                       <Text style={styles.text}>{experiencia.Inicio} -</Text>
@@ -116,6 +119,12 @@ export default function CurriculumRender() {
                   </View>
                 )}
               </View>
+            }
+            {OutrasInformacoes.OutrasInformacoes && 
+            <View style={styles.OtherInformation}>
+              <Text style={styles.subtitle}>Informações Adicionais: </Text>
+              <Text style={{ ...styles.text, paddingHorizontal: 10 }}>{ OutrasInformacoes.OutrasInformacoes }</Text>
+            </View>
             }
           </View>
         </Page>

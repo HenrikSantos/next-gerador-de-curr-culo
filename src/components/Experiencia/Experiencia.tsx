@@ -53,7 +53,7 @@ export default function Experiencia() {
           Experiência
         </CardTitle>
         <CardDescription>
-          Colocar neste campo informação sobre as suas últimas experiências profissionais. Escolha apenas as experiências mais relevantes para a vaga ou que mostrem o seu percurso profissional mais recente.
+          Coloque informações sobre as suas últimas experiências profissionais. Escolha apenas as experiências mais relevantes para a vaga ou que mostrem o seu percurso profissional mais recente.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
