@@ -1,9 +1,18 @@
 "use client";
 
 import React from "react";
-import { Document, Page, Text, View, StyleSheet, PDFViewer, Font } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { useStore } from "zustand";
 import store from "@/context/store";
+import dynamic from "next/dynamic";
+
+const PDFViewer = dynamic(
+  () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
+  {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  },
+);
 
 Font.register({
   family: "Open Sans",
