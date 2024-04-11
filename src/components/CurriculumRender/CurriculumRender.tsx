@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 "use client";
 
 import React from "react";
@@ -95,11 +96,14 @@ export default function CurriculumRender() {
               {DadosPessoais.TelefoneResidencial && <Text style={styles.text}>Telefone Residencial: {DadosPessoais.TelefoneResidencial}</Text>}
               {DadosPessoais.Celular && <Text style={styles.text}>Celular: {DadosPessoais.Celular}</Text>}
               {DadosPessoais.Endereco && <Text style={styles.text}>Endereço: {DadosPessoais.Endereco}</Text>}
-              
-              <Text style={{ ...styles.text, marginTop: 10 }}>Sobre: </Text>
-              <Text style={{ ...styles.sobre, ...styles.text }}>{DadosPessoais.Sobre}</Text>
+              {DadosPessoais.Sobre && 
+              <>
+                <Text style={{ ...styles.text, marginTop: 10 }}>Sobre: </Text>
+                <Text style={{ ...styles.sobre, ...styles.text }}>{DadosPessoais.Sobre}</Text>
+              </>
+              }
             </View>
-            {FormacaoAcademica.length > 0 && 
+            { (FormacaoAcademica.length > 0 && FormacaoAcademica[0].Curso)  && 
               <View style={styles.AcademicFormation}>
                 <Text style={styles.subtitle}>Formação Acadêmica: </Text>
                 {FormacaoAcademica.map((formacao, index) => 
@@ -113,7 +117,7 @@ export default function CurriculumRender() {
                 )}
               </View>
             }
-            {Experiencia.length > 0 && 
+            { (Experiencia.length > 0 && Experiencia[0].Cargo) && 
               <View style={styles.Experience}>
                 <Text style={styles.subtitle}>Experiencia: </Text>
                 {Experiencia.map((experiencia, index) => 
