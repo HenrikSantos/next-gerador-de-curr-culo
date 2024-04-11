@@ -107,7 +107,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
             <FormItem>
               <FormLabel>Cargo</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="Desenvolvedor Fullstack"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -119,7 +119,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Descricao"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Descrição <span className="text-red-800">*</span></FormLabel>
+              <FormLabel>Descrição</FormLabel>
               <FormControl>
                 <Textarea {...field} placeholder="Responsável por..." />
               </FormControl>

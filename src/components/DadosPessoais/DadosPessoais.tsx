@@ -41,20 +41,20 @@ const formSchema = z.object({
 });
 
 export default function DadosPessoais() { 
-  const { setDadosPessoais } = useStore(store);
+  const { setDadosPessoais, DadosPessoais } = useStore(store);
 
   const form = useForm<IDadosPessoais>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      NomeCompleto: "",
-      Email: "",
-      Nacionalidade: "",
-      Idade: "",
-      TelefoneResidencial: "",
-      Celular: "",
-      Endereco: "",
-      Subtitulo: "",
-      Sobre: ""
+      NomeCompleto: DadosPessoais.NomeCompleto,
+      Email: DadosPessoais.Email,
+      Nacionalidade: DadosPessoais.Nacionalidade,
+      Idade: DadosPessoais.Idade,
+      TelefoneResidencial: DadosPessoais.TelefoneResidencial,
+      Celular: DadosPessoais.Celular,
+      Endereco: DadosPessoais.Endereco,
+      Subtitulo: DadosPessoais.Subtitulo,
+      Sobre: DadosPessoais.Sobre
     },
   });
 
@@ -82,7 +82,7 @@ export default function DadosPessoais() {
                 <FormItem>
                   <FormLabel>Nome Completo <span className="text-red-800">*</span></FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Henrik Ruan Santos de Soza" />
+                    <Input {...field} placeholder="Henrik Ruan Santos de Souza" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -195,7 +195,7 @@ export default function DadosPessoais() {
                 <FormItem>
                   <FormLabel>Endereço</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} placeholder="México, Michoacán, Tangamandápio, C. Madero 190, Barrio de San Rafael."/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

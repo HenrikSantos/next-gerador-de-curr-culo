@@ -25,12 +25,12 @@ const formSchema = z.object({
 });
 
 export default function OutrasInformacoes() {
-  const { setOutrasInformacoes } = useStore(store);
+  const { setOutrasInformacoes, OutrasInformacoes } = useStore(store);
 
   const form = useForm<IOutrasInformacoes>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      OutrasInformacoes: "",
+      OutrasInformacoes: OutrasInformacoes.OutrasInformacoes,
     },
   });
 
@@ -56,7 +56,7 @@ export default function OutrasInformacoes() {
               name="OutrasInformacoes"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>OutrasInformacoes</FormLabel>
+                  <FormLabel>Outras Informações</FormLabel>
                   <FormControl>
                     <Textarea {...field} placeholder="Realizei diversos bootcamps... Sou uma pessoa esforçada... Tenho conhecimento em marketing digital... Participei de trabalhos voluntários..." />
                   </FormControl>

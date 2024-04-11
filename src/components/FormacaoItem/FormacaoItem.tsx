@@ -62,7 +62,7 @@ export default function FormacaoItem({ formacao, index, deleteFormacao, updateFo
             <FormItem>
               <FormLabel>Curso</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="Análise e desenvolvimento de sistemas."/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -76,7 +76,7 @@ export default function FormacaoItem({ formacao, index, deleteFormacao, updateFo
             <FormItem>
               <FormLabel>Instituição</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="Fatec"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -90,7 +90,7 @@ export default function FormacaoItem({ formacao, index, deleteFormacao, updateFo
             <FormItem>
               <FormLabel>Ano De Conclusao</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="2027"/>
               </FormControl>
               <FormMessage />
             </FormItem>
