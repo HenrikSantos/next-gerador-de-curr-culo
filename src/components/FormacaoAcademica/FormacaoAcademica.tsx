@@ -56,7 +56,7 @@ export default function FormacaoAcademica() {
     <Card>
       <CardHeader>
         <CardTitle className="text-2xl">
-          Dados Pessoais
+          Formação acadêmica
         </CardTitle>
         <CardDescription>
           Inserir sua formação acadêmica, colocando os cursos mais importantes para a vaga primeiro e sempre do mais recente para o mais antigo.

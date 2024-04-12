@@ -103,7 +103,7 @@ export default function CurriculumRender() {
               </>
               }
             </View>
-            { (FormacaoAcademica.length > 0 && FormacaoAcademica[0].Curso)  && 
+            { (FormacaoAcademica.length > 0 && FormacaoAcademica[0].Curso.length > 0)  && 
               <View style={styles.AcademicFormation}>
                 <Text style={styles.subtitle}>Formação Acadêmica: </Text>
                 {FormacaoAcademica.map((formacao, index) => 
@@ -117,7 +117,7 @@ export default function CurriculumRender() {
                 )}
               </View>
             }
-            { (Experiencia.length > 0 && Experiencia[0].Cargo) && 
+            { (Experiencia.length > 0 && Experiencia[0].Cargo.length > 0) && 
               <View style={styles.Experience}>
                 <Text style={styles.subtitle}>Experiencia: </Text>
                 {Experiencia.map((experiencia, index) => 
@@ -133,10 +133,10 @@ export default function CurriculumRender() {
                 )}
               </View>
             }
-            {OutrasInformacoes.OutrasInformacoes && 
+            {OutrasInformacoes.length > 0 && 
             <View style={styles.OtherInformation}>
               <Text style={styles.subtitle}>Informações Adicionais: </Text>
-              <Text style={{ ...styles.text, paddingHorizontal: 10 }}>{ OutrasInformacoes.OutrasInformacoes }</Text>
+              <Text style={{ ...styles.text, paddingHorizontal: 10 }}>{ OutrasInformacoes }</Text>
             </View>
             }
           </View>

@@ -16,9 +16,12 @@ import { Textarea } from "../ui/textarea";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { IOutrasInformacoes } from "./IOutrasInformacoes";
 import { useStore } from "zustand";
 import store from "@/context/store";
+
+interface IOutrasInformacoes {
+  OutrasInformacoes: string
+}
 
 const formSchema = z.object({
   OutrasInformacoes: z.string()
@@ -30,12 +33,12 @@ export default function OutrasInformacoes() {
   const form = useForm<IOutrasInformacoes>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      OutrasInformacoes: OutrasInformacoes.OutrasInformacoes,
+      OutrasInformacoes,
     },
   });
 
   const onSubmit = (values: IOutrasInformacoes) => {
-    setOutrasInformacoes(values);
+    setOutrasInformacoes(values.OutrasInformacoes);
   };
 
   return (

@@ -28,10 +28,10 @@ interface IExperienciaItem {
 
 const formSchema = z.object({
   Empresa: z.string(),
-  Inicio: z.string(),
-  Fim: z.string(),
+  Inicio: z.string().optional(),
+  Fim: z.string().optional(),
   Cargo: z.string(),
-  Descricao: z.string()
+  Descricao: z.string().optional()
 });
 
 export default function ExperienciaItem({ experiencia, index, deleteExperiencia, updateExperiencia }: IExperienciaItem) {
@@ -63,7 +63,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Empresa"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Empresa</FormLabel>
+              <FormLabel>Empresa <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="Tabajara Comunicações, sei lá :)"/>
               </FormControl>
@@ -105,7 +105,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Cargo"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Cargo</FormLabel>
+              <FormLabel>Cargo <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="Desenvolvedor Fullstack"/>
               </FormControl>
