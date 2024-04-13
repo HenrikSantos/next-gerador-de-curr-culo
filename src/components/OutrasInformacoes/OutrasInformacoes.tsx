@@ -59,7 +59,7 @@ export default function OutrasInformacoes() {
               name="OutrasInformacoes"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Outras Informações</FormLabel>
+                  <FormLabel data-testid={"OutrasInformacoes"}>Outras Informações</FormLabel>
                   <FormControl>
                     <Textarea {...field} placeholder="Realizei diversos bootcamps... Sou uma pessoa esforçada... Tenho conhecimento em marketing digital... Participei de trabalhos voluntários..." />
                   </FormControl>
@@ -67,7 +67,7 @@ export default function OutrasInformacoes() {
                 </FormItem>
               }
             />
-            <Button className="mt-3" type="submit">Salvar</Button>
+            <Button data-testid={"Salvar"} className="mt-3" type="submit">Salvar</Button>
           </form>
         </Form>
       </CardContent>
