@@ -2,7 +2,7 @@ import React from "react";
 import DadosPessoais from "./DadosPessoais";
 import { render, screen } from "@testing-library/react";
 
-describe("Dados Pessoais", () => {
+describe("DadosPessoais", () => {
   test("Should render DadosPessoais", () => {
     render(<DadosPessoais />);
     expect(screen.getByTestId("NomeCompleto")).toBeDefined();
