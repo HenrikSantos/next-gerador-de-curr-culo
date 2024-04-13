@@ -63,7 +63,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Empresa"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Empresa <span className="text-red-800">*</span></FormLabel>
+              <FormLabel data-testid={"Empresa"}>Empresa <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="Tabajara Comunicações, sei lá :)"/>
               </FormControl>
@@ -77,7 +77,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Inicio"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Início</FormLabel>
+              <FormLabel data-testid={"Inicio"}>Início</FormLabel>
               <FormControl>
                 <Input {...field} placeholder="1999"/>
               </FormControl>
@@ -91,7 +91,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Fim"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Fim</FormLabel>
+              <FormLabel data-testid={"Fim"}>Fim</FormLabel>
               <FormControl>
                 <Input {...field} placeholder="2002"/>
               </FormControl>
@@ -105,7 +105,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Cargo"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Cargo <span className="text-red-800">*</span></FormLabel>
+              <FormLabel data-testid={"Cargo"}>Cargo <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="Desenvolvedor Fullstack"/>
               </FormControl>
@@ -119,7 +119,7 @@ export default function ExperienciaItem({ experiencia, index, deleteExperiencia,
           name="Descricao"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Descrição</FormLabel>
+              <FormLabel data-testid={"Descricao"}>Descrição</FormLabel>
               <FormControl>
                 <Textarea {...field} placeholder="Responsável por..." />
               </FormControl>

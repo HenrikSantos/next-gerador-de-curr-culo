@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ExperienciaItem from "./ExperienciaItem";
 import { IExperiencia } from "../Experiencia/IExperiencia";
 
@@ -11,14 +11,20 @@ const experienciaMock: IExperiencia = {
   Empresa: ""
 };
 
-test("checks if the div with text ExperienciaItem is present", () => {
-  const { getByText } = render(<
-    ExperienciaItem 
-    deleteExperiencia={() => null} 
-    index={1} 
-    updateExperiencia={() => null} 
-    experiencia={experienciaMock}
-  />);
-  const divElement = getByText(/ExperienciaItem/i);
-  expect(divElement).toBeDefined();
+describe("ExperienciaItem", () => {
+  test("Should render ExperienciaItem", () => {
+    render(<
+      ExperienciaItem 
+      deleteExperiencia={() => null} 
+      index={1} 
+      updateExperiencia={() => null} 
+      experiencia={experienciaMock}
+    />);
+
+    expect(screen.getByTestId("Empresa")).toBeDefined();
+    expect(screen.getByTestId("Inicio")).toBeDefined();
+    expect(screen.getByTestId("Fim")).toBeDefined();
+    expect(screen.getByTestId("Cargo")).toBeDefined();
+    expect(screen.getByTestId("Descricao")).toBeDefined();
+  });
 });
