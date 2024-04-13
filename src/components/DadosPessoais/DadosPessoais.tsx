@@ -80,7 +80,7 @@ export default function DadosPessoais() {
               name="NomeCompleto"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Nome Completo <span className="text-red-800">*</span></FormLabel>
+                  <FormLabel data-testid={"NomeCompleto"}>Nome Completo <span className="text-red-800">*</span></FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="Henrik Ruan Santos de Souza" />
                   </FormControl>
@@ -93,7 +93,7 @@ export default function DadosPessoais() {
               name="Subtitulo"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Subtítulo</FormLabel>
+                  <FormLabel data-testid={"Subtitulo"}>Subtítulo</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="Desenvolvedor Fullstack" />
                   </FormControl>
@@ -106,7 +106,7 @@ export default function DadosPessoais() {
               name="Email"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Email <span className="text-red-800">*</span></FormLabel>
+                  <FormLabel data-testid={"Email"}>Email <span className="text-red-800">*</span></FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="seu@email.com"/>
                   </FormControl>
@@ -120,7 +120,7 @@ export default function DadosPessoais() {
               name="Sobre"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Sobre <span className="text-red-800">*</span></FormLabel>
+                  <FormLabel data-testid={"Sobre"}>Sobre <span className="text-red-800">*</span></FormLabel>
                   <FormControl>
                     <Textarea {...field} placeholder="Sou desenvolvedor WEB Full Stack,
                       atualmente aluno em Análise e Desenvolvimento de Sistemas na
@@ -137,7 +137,7 @@ export default function DadosPessoais() {
               name="Nacionalidade"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Nacionalidade</FormLabel>
+                  <FormLabel data-testid={"Nacionalidade"}>Nacionalidade</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="Brasileira" />
                   </FormControl>
@@ -165,7 +165,7 @@ export default function DadosPessoais() {
               name="TelefoneResidencial"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Telefone Residêncial</FormLabel>
+                  <FormLabel data-testid={"TelefoneResidencial"}>Telefone Residêncial</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="(55) 9999-9999" />
                   </FormControl>
@@ -179,7 +179,7 @@ export default function DadosPessoais() {
               name="Celular"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Celular</FormLabel>
+                  <FormLabel data-testid={"Celular"}>Celular</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="(55) 99999-9999" />
                   </FormControl>
@@ -193,7 +193,7 @@ export default function DadosPessoais() {
               name="Endereco"
               render={({ field }) => 
                 <FormItem>
-                  <FormLabel>Endereço</FormLabel>
+                  <FormLabel data-testid={"Endereco"}>Endereço</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="México, Michoacán, Tangamandápio, C. Madero 190, Barrio de San Rafael."/>
                   </FormControl>
@@ -202,7 +202,7 @@ export default function DadosPessoais() {
               }
             />
 
-            <Button className="mt-3" type="submit">Salvar</Button>
+            <Button data-testid={"Salvar"} className="mt-3" type="submit">Salvar</Button>
           </form>
         </Form>
       </CardContent>
