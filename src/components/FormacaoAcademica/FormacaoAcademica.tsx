@@ -66,10 +66,10 @@ export default function FormacaoAcademica() {
         { formacoes.map((formacao, index) => <FormacaoItem key={index} updateFormacao={updateFormacao} deleteFormacao={deleteFormacao} formacao={formacao} index={index} /> )}
       </CardContent>
       <CardFooter className="flex gap-3">
-        <Button className="mt-3" type="button" onClick={addFormacao}>
+        <Button data-testid={"BtnFormacao"} className="mt-3" type="button" onClick={addFormacao}>
           + Adicionar outro curso
         </Button>
-        <Button className="mt-3" type="button" onClick={() => submit(formacoes)}>Salvar</Button>
+        <Button data-testid={"Salvar"} className="mt-3" type="button" onClick={() => submit(formacoes)}>Salvar</Button>
       </CardFooter>
     </Card>
   );
