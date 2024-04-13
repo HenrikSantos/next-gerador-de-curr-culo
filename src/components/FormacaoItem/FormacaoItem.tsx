@@ -55,12 +55,13 @@ export default function FormacaoItem({ formacao, index, deleteFormacao, updateFo
   return (
     <Form {...form} key={index}>
       <form className="space-y-3">
+
         <FormField
           control={form.control}
           name="Curso"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Curso <span className="text-red-800">*</span></FormLabel>
+              <FormLabel data-testid={"Curso"}>Curso <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="Análise e desenvolvimento de sistemas."/>
               </FormControl>
@@ -74,7 +75,7 @@ export default function FormacaoItem({ formacao, index, deleteFormacao, updateFo
           name="Instituicao"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Instituição <span className="text-red-800">*</span></FormLabel>
+              <FormLabel data-testid={"Instituicao"}>Instituição <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="Fatec"/>
               </FormControl>
@@ -88,7 +89,7 @@ export default function FormacaoItem({ formacao, index, deleteFormacao, updateFo
           name="AnoDeConclusao"
           render={({ field }) => 
             <FormItem>
-              <FormLabel>Ano De Conclusao <span className="text-red-800">*</span></FormLabel>
+              <FormLabel data-testid={"AnoDeConclusao"}>Ano De Conclusao <span className="text-red-800">*</span></FormLabel>
               <FormControl>
                 <Input {...field} placeholder="2027"/>
               </FormControl>
