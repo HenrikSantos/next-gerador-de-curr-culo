@@ -1,9 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Experiencia from "./Experiencia";
 
-test("checks if the div with text Experiencia is present", () => {
-  const { getByText } = render(<Experiencia />);
-  const divElement = getByText(/Experiencia/i);
-  expect(divElement).toBeDefined();
+describe("Experiencia", () => {
+  test("Should render Experiencia", () => {
+    render(<Experiencia />);
+    expect(screen.getByTestId("BtnExperiencia")).toBeDefined();
+  });
 });

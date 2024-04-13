@@ -60,8 +60,8 @@ export default function Experiencia() {
         { experienciasPage.map((experiencia, index) => <ExperienciaItem key={index} updateExperiencia={updateExperiencia} deleteExperiencia={deleteExperiencia} experiencia={experiencia} index={index} /> )}
       </CardContent>
       <CardFooter className="flex gap-3">
-        <Button className="mt-3" type="button" onClick={addExperiencia}>
-          + Adicionar outro experiência
+        <Button data-testid={"BtnExperiencia"} className="mt-3" type="button" onClick={addExperiencia}>
+          + Adicionar outra experiência
         </Button>
         <Button className="mt-3" type="button" onClick={() => submit(experienciasPage)}>Salvar</Button>
       </CardFooter>
